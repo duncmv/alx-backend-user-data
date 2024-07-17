@@ -7,7 +7,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.exc import InvalidRequestError
-
 from user import Base, User
 
 
@@ -39,7 +38,7 @@ class DB:
         self._session.commit()
         return user
 
-    def find_user_by(self, **kwargs: dict[str: str]) -> User:
+    def find_user_by(self, **kwargs: dict[str, str]) -> User:
         """Find a user"""
         for key in kwargs.keys():
             if key not in ["email", "id", "session_id", "reset_token"]:
